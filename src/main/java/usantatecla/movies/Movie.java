@@ -11,12 +11,12 @@ public class Movie {
 	
 	public Movie(String title, int priceCode) {
 		this.title = title;
-		this.priceCode = priceCode;
+		this.setPriceCode(priceCode);
 	}
 	
 	public double getCharge(int daysRented) {
 		double result = 0;
-		switch (priceCode) {
+		switch (this.getPriceCode()) {
 		case Movie.REGULAR:
 			result += 2;
 			if (daysRented > 2) {
