@@ -31,7 +31,7 @@ public class Customer {
 			double thisAmount = 0;
 			Rental each = rentals.next();
 			
-			thisAmount = this.amountFor(each);
+			thisAmount = each.getCharge();
 			
 			// add frequent renter points
 			frequentRenterPoints++;
@@ -49,10 +49,5 @@ public class Customer {
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
 	}
-	
-	private double amountFor(Rental rental) {
-		return rental.getCharge();
-	}
-	
 	
 }
