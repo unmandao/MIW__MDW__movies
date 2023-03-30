@@ -2,10 +2,6 @@ package usantatecla.movies;
 
 public class Movie {
 
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
-	public static final int CHILDRENS = 2;
-	
 	private String title;
 	private Price price;
 	
@@ -21,12 +17,8 @@ public class Movie {
 	public int getFrequentRenterPoints(int daysRented) {
 		return price.getFrequentRenterPoints(daysRented);
 	}
-
-	public int getPriceCode() {
-		return price.getPriceCode();
-	}
 	
-	public void setPriceCode(Price price) {
+	public void setPrice(Price price) {
 		this.price = price;
 	}
 	
