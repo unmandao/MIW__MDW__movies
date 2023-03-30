@@ -27,10 +27,8 @@ public class Customer {
 		String result = "Rental Record for " + this.getName() + "\n";
 		while (rentals.hasNext()) {
 			Rental each = rentals.next();
-			// show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
 		}
-		// add footer lines
 		result += "Amount owed is " + String.valueOf(this.getTotalCharge()) + "\n";
 		result += "You earned " + String.valueOf(this.getTotalFrequentRenterPoints()) + " frequent renter points";
 		return result;
