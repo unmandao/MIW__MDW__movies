@@ -30,6 +30,6 @@ public class MovieBuilder {
 	}
 	
 	public Movie build() {
-		return new Movie(title, price.getPriceCode());
+		return new Movie(title, price);
 	}
 }
