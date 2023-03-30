@@ -2,14 +2,22 @@ package usantatecla.movies;
 
 public class NewReleasePrice extends Price {
 
+	private static final double CHARGE = 3;
+	private static final int DAYS_RENTED_THRESHOLD = 1;
+	private static final int FREQUENT_RENTER_POINTS = 2;
+	
 	@Override
 	public double getCharge(int daysRented) {
-		return 3;
+		return NewReleasePrice.CHARGE;
 	}
 	
 	@Override
 	public int getFrequentRenterPoints(int daysRented) {
-		return daysRented > 1 ? 2 : 1;
+		if (daysRented > NewReleasePrice.DAYS_RENTED_THRESHOLD) {
+			return NewReleasePrice.FREQUENT_RENTER_POINTS;
+		} else {
+			return super.getFrequentRenterPoints(daysRented);
+		}
 	}
 
 }

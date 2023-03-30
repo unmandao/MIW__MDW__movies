@@ -2,11 +2,15 @@ package usantatecla.movies;
 
 public class ChildrenPrice extends Price {
 
+	private static final double CHARGE = 1.5;
+	private static final double EXTRA_CHARGE = 1.5;
+	private static final int DAYS_RENTED_THRESHOLD = 3;
+	
 	@Override
 	public double getCharge(int daysRented) {
-		double result = 1.5;
-		if (daysRented > 3) {
-			result += (daysRented - 1) * 1.5;
+		double result = ChildrenPrice.CHARGE;
+		if (daysRented > ChildrenPrice.DAYS_RENTED_THRESHOLD) {
+			result += (daysRented - 1) * ChildrenPrice.EXTRA_CHARGE;
 		}
 		return result;
 	}
