@@ -41,13 +41,9 @@ public class Customer {
 	}
 
 	private int getTotalFrequentRenterPoints() {
-		int result = 0;
-		Iterator<Rental> rentals = this.rentals.iterator();
-		while (rentals.hasNext()) {
-			Rental each = rentals.next();
-			result += each.getFrequentRenterPoints();
-		}
-		return result;
+		return rentals.stream()
+				.mapToInt(Rental::getFrequentRenterPoints)
+				.sum();
 	}
 
 }
