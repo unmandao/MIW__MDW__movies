@@ -21,7 +21,7 @@ public class CustomerTest {
 	@Test
 	public void regularRental1DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).regular().build();
+		Movie movie = new RegularMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(1).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -36,7 +36,7 @@ public class CustomerTest {
 	@Test
 	public void regularRental2DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).regular().build();
+		Movie movie = new RegularMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(2).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -51,7 +51,7 @@ public class CustomerTest {
 	@Test
 	public void regularRental3DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).regular().build();
+		Movie movie = new RegularMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(3).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -66,7 +66,7 @@ public class CustomerTest {
 	@Test
 	public void newReleaseRental1DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).newRelease().build();
+		Movie movie = new NewReleaseMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(1).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -81,7 +81,7 @@ public class CustomerTest {
 	@Test
 	public void newReleaseRental2DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).newRelease().build();
+		Movie movie = new NewReleaseMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(2).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -96,7 +96,7 @@ public class CustomerTest {
 	@Test
 	public void newReleaseRental3DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).newRelease().build();
+		Movie movie = new NewReleaseMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(3).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -111,7 +111,7 @@ public class CustomerTest {
 	@Test
 	public void childrensRental1DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).childrens().build();
+		Movie movie = new ChildrenMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(1).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -126,7 +126,7 @@ public class CustomerTest {
 	@Test
 	public void childrensRental3DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).childrens().build();
+		Movie movie = new ChildrenMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(3).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -141,7 +141,7 @@ public class CustomerTest {
 	@Test
 	public void childrensRental4DayTest() {
 		String movieName = "movieName";
-		Movie movie = new MovieBuilder().title(movieName).childrens().build();
+		Movie movie = new ChildrenMovie(movieName);
 		Rental rental = new RentalBuilder().movie(movie).daysRented(4).build();
 		String customerName = "customerName";
 		Customer customer = new CustomerBuilder().name(customerName).rental(rental).build();
@@ -156,15 +156,15 @@ public class CustomerTest {
 	@Test
 	public void rentalTest() {
 		String regularMovieName = "regularMovieName";
-		Movie regularMovie = new MovieBuilder().title(regularMovieName).regular().build();
+		Movie regularMovie = new RegularMovie(regularMovieName);
 		Rental regularRental = new RentalBuilder().movie(regularMovie).daysRented(10).build();
 		
 		String newReleaseMovieName = "newReleaseMovieName";
-		Movie newReleaseMovie = new MovieBuilder().title(newReleaseMovieName).newRelease().build();
+		Movie newReleaseMovie = new NewReleaseMovie(newReleaseMovieName);
 		Rental newReleaseRental = new RentalBuilder().movie(newReleaseMovie).daysRented(10).build();
 		
 		String childrensMovieName = "childrensMovieName";
-		Movie childrensMovie = new MovieBuilder().title(childrensMovieName).childrens().build();
+		Movie childrensMovie = new ChildrenMovie(childrensMovieName);
 		Rental childrensRental = new RentalBuilder().movie(childrensMovie).daysRented(10).build();
 		
 		String customerName = "customerName";
