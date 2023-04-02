@@ -2,6 +2,7 @@ package usantatecla.movies;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Customer {
 
@@ -33,11 +34,9 @@ public class Customer {
 	}
 
 	String statementListOfRentals() {
-		String result = "";
-		for(Rental rental : this.rentals) {
-			result += "\t" + rental.getTitle() + "\t" + rental.getCharge() + "\n";
-		}
-		return result;
+		return rentals.stream()
+				.map(rental -> "\t" + rental.getTitle() + "\t" + rental.getCharge() + "\n")
+				.collect(Collectors.joining(""));
 	}
 
 	String statementTotalCharge() {
