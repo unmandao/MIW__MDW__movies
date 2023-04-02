@@ -1,8 +1,8 @@
 package usantatecla.movies;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
 
@@ -97,7 +97,7 @@ public class CustomerTest {
 				.totalAmount(3).frequentRenterPoints(2).build();
 		assertEquals(result, statement);
 	}
-	
+
 	@Test
 	public void childrensRental1DayTest() {
 		Movie movie = new ChildrenMovie(MOVIE_NAME);
