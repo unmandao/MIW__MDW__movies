@@ -18,10 +18,7 @@ public class CustomerTest {
 
 		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME)
 				.totalAmount(0).frequentRenterPoints(0);
-		assertEquals(statementBuilderResult.buildTitle(), customer.statementTitle());
-		assertEquals(statementBuilderResult.buildListOfRentals(), customer.statementListOfRentals());
-		assertEquals(statementBuilderResult.buildTotalCharge(), customer.statementTotalCharge());
-		assertEquals(statementBuilderResult.buildTotalFrequentRenterPoints(), customer.statementTotalFrequentRenterPoints());
+		commonAsserts(statementBuilderResult, customer);
 	}
 
 	@ParameterizedTest
@@ -37,10 +34,7 @@ public class CustomerTest {
 
 		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
 				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints);
-		assertEquals(statementBuilderResult.buildTitle(), customer.statementTitle());
-		assertEquals(statementBuilderResult.buildListOfRentals(), customer.statementListOfRentals());
-		assertEquals(statementBuilderResult.buildTotalCharge(), customer.statementTotalCharge());
-		assertEquals(statementBuilderResult.buildTotalFrequentRenterPoints(), customer.statementTotalFrequentRenterPoints());
+		commonAsserts(statementBuilderResult, customer);
 	}
 
 	@ParameterizedTest
@@ -56,10 +50,7 @@ public class CustomerTest {
 
 		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
 				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints);
-		assertEquals(statementBuilderResult.buildTitle(), customer.statementTitle());
-		assertEquals(statementBuilderResult.buildListOfRentals(), customer.statementListOfRentals());
-		assertEquals(statementBuilderResult.buildTotalCharge(), customer.statementTotalCharge());
-		assertEquals(statementBuilderResult.buildTotalFrequentRenterPoints(), customer.statementTotalFrequentRenterPoints());
+		commonAsserts(statementBuilderResult, customer);
 	}
 
 	@ParameterizedTest
@@ -75,10 +66,7 @@ public class CustomerTest {
 
 		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
 				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints);
-		assertEquals(statementBuilderResult.buildTitle(), customer.statementTitle());
-		assertEquals(statementBuilderResult.buildListOfRentals(), customer.statementListOfRentals());
-		assertEquals(statementBuilderResult.buildTotalCharge(), customer.statementTotalCharge());
-		assertEquals(statementBuilderResult.buildTotalFrequentRenterPoints(), customer.statementTotalFrequentRenterPoints());
+		commonAsserts(statementBuilderResult, customer);
 	}
 
 	@Test
@@ -101,10 +89,13 @@ public class CustomerTest {
 		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME)
 				.movie(regularMovieName, 14).movie(newReleaseMovieName, 3).movie(childrensMovieName, 15)
 				.totalAmount(32).frequentRenterPoints(4);
+		commonAsserts(statementBuilderResult, customer);
+	}
+
+	private void commonAsserts(StatementBuilder statementBuilderResult, Customer customer) {
 		assertEquals(statementBuilderResult.buildTitle(), customer.statementTitle());
 		assertEquals(statementBuilderResult.buildListOfRentals(), customer.statementListOfRentals());
 		assertEquals(statementBuilderResult.buildTotalCharge(), customer.statementTotalCharge());
 		assertEquals(statementBuilderResult.buildTotalFrequentRenterPoints(), customer.statementTotalFrequentRenterPoints());
 	}
-	
 }
