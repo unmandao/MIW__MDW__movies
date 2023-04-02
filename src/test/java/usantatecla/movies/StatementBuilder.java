@@ -38,14 +38,27 @@ public class StatementBuilder {
 	}
 	
 	public String build() {
-		String result = "Rental Record for " + customerName + "\n";
+		return buildTitle() +
+				buildListOfRentals() +
+				buildTotalCharge() +
+				buildTotalFrequentRenterPoints();
+	}
+
+	public String buildTitle() {
+		return "Rental Record for " + customerName + "\n";
+	}
+	public String buildListOfRentals() {
+		String result = "";
 		for(int i=0; i<movieNames.size(); i++) {
 			result += "\t" + movieNames.get(i) + "\t" + amounts.get(i) + "\n";
 		}
-		result += "Amount owed is " + totalAmount + "\n";
-		result += "You earned " + frequentRenterPoints + " frequent renter points";
 		return result;
 	}
-	
+	public String buildTotalCharge() {
+		return "Amount owed is " + totalAmount + "\n";
+	}
+	public String buildTotalFrequentRenterPoints() {
+		return "You earned " + frequentRenterPoints + " frequent renter points";
+	}
 
 }
