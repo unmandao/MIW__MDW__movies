@@ -22,13 +22,30 @@ public class Customer {
 	}
 	
 	public String statement() {
-		String result = "Rental Record for " + this.getName() + "\n";
+		return statementTitle() +
+				statementListOfRentals() +
+				statementTotalCharge() +
+				statementTotalFrequentRenterPoints();
+	}
+
+	String statementTitle() {
+		return "Rental Record for " + this.getName() + "\n";
+	}
+
+	String statementListOfRentals() {
+		String result = "";
 		for(Rental rental : this.rentals) {
 			result += "\t" + rental.getTitle() + "\t" + rental.getCharge() + "\n";
 		}
-		result += "Amount owed is " + this.getTotalCharge() + "\n";
-		result += "You earned " + this.getTotalFrequentRenterPoints() + " frequent renter points";
 		return result;
+	}
+
+	String statementTotalCharge() {
+		return "Amount owed is " + this.getTotalCharge() + "\n";
+	}
+
+	String statementTotalFrequentRenterPoints() {
+		return "You earned " + this.getTotalFrequentRenterPoints() + " frequent renter points";
 	}
 
 	private double getTotalCharge() {
