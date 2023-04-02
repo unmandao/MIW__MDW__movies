@@ -16,11 +16,9 @@ public class CustomerTest {
 	public void withoutRentalsTest() {
 		Customer customer = new CustomerBuilder().name(CUSTOMER_NAME).build();
 
-		String statement = customer.statement();
-
-		String result = new StatementBuilder().customerName(CUSTOMER_NAME)
-				.totalAmount(0).frequentRenterPoints(0).build();
-		assertEquals(result, statement);
+		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME)
+				.totalAmount(0).frequentRenterPoints(0);
+		assertEquals(statementBuilderResult.build(), customer.statement());
 	}
 
 	@ParameterizedTest
@@ -34,11 +32,9 @@ public class CustomerTest {
 		Rental rental = new RentalBuilder().movie(movie).daysRented(days).build();
 		Customer customer = new CustomerBuilder().name(CUSTOMER_NAME).rental(rental).build();
 
-		String statement = customer.statement();
-
-		String result = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
-				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints).build();
-		assertEquals(result, statement);
+		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
+				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints);
+		assertEquals(statementBuilderResult.build(), customer.statement());
 	}
 
 	@ParameterizedTest
@@ -52,11 +48,9 @@ public class CustomerTest {
 		Rental rental = new RentalBuilder().movie(movie).daysRented(days).build();
 		Customer customer = new CustomerBuilder().name(CUSTOMER_NAME).rental(rental).build();
 
-		String statement = customer.statement();
-
-		String result = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
-				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints).build();
-		assertEquals(result, statement);
+		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
+				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints);
+		assertEquals(statementBuilderResult.build(), customer.statement());
 	}
 
 	@ParameterizedTest
@@ -70,11 +64,9 @@ public class CustomerTest {
 		Rental rental = new RentalBuilder().movie(movie).daysRented(days).build();
 		Customer customer = new CustomerBuilder().name(CUSTOMER_NAME).rental(rental).build();
 
-		String statement = customer.statement();
-
-		String result = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
-				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints).build();
-		assertEquals(result, statement);
+		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME).movie(MOVIE_NAME, amount)
+				.totalAmount(amount).frequentRenterPoints(frequentRenterPoints);
+		assertEquals(statementBuilderResult.build(), customer.statement());
 	}
 
 	@Test
@@ -94,12 +86,10 @@ public class CustomerTest {
 		Customer customer = new CustomerBuilder().name(CUSTOMER_NAME)
 				.rental(regularRental).rental(newReleaseRental).rental(childrensRental).build();
 
-		String statement = customer.statement();
-
-		String result = new StatementBuilder().customerName(CUSTOMER_NAME)
+		StatementBuilder statementBuilderResult = new StatementBuilder().customerName(CUSTOMER_NAME)
 				.movie(regularMovieName, 14).movie(newReleaseMovieName, 3).movie(childrensMovieName, 15)
-				.totalAmount(32).frequentRenterPoints(4).build();
-		assertEquals(result, statement);
+				.totalAmount(32).frequentRenterPoints(4);
+		assertEquals(statementBuilderResult.build(), customer.statement());
 	}
 	
 }
